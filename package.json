@@ -1,0 +1,20 @@
+{
+  "name": "blog-md",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Blog statique : Markdown -> HTML (thème Save Point / Undertale).",
+  "scripts": {
+    "build": "node build.mjs",
+    "serve": "node build.mjs && python3 -m http.server -d dist 8087"
+  },
+  "dependencies": {
+    "rehype-highlight": "^7.0.2",
+    "rehype-stringify": "^10.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
+    "unified": "^11.0.5",
+    "unist-util-visit": "^5.2.0"
+  }
+}
