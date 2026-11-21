@@ -222,7 +222,7 @@ On peut donc refaire l'exploit en C++ en utilisant la lib pour communiquer avec 
 
 Pour obtenir le proxy (le `svc` sur lequel on appelle les méthodes), on recopie ce que fait la lib dans son JNI `createSession` : `AServiceManager_waitForService("com.lab.replay.IReplayService/default")` pour choper le binder, puis `IReplayService::fromBinder(binder)` pour l'emballer. C'est la fonction `connect_service` du PoC.
 
-### Le PoC natif complet (`nexploit.cpp`)
+### Le PoC natif complet (`exploit.cpp`)
 
 ```cpp
 #include <android/binder_auto_utils.h>
@@ -363,11 +363,11 @@ Pas besoin de root : le service **accepte l'uid shell (2000)**, donc on lance le
 Build + run (uid 2000, sans root) :
 
 ```bash
-clang++ --target=x86_64-linux-android33 -std=c++17 nexploit.cpp \
-        -L. -lreplay -lbinder_ndk -llog -Wl,--allow-shlib-undefined -o nexploit
+clang++ --target=x86_64-linux-android33 -std=c++17 exploit.cpp \
+        -L. -lreplay -lbinder_ndk -llog -Wl,--allow-shlib-undefined -o exploit
 
-adb push nexploit libreplay.so libc++_shared.so /data/local/tmp/ 
-adb shell "LD_LIBRARY_PATH=/data/local/tmp /data/local/tmp/nexploit"
+adb push exploit libreplay.so libc++_shared.so /data/local/tmp/ 
+adb shell "LD_LIBRARY_PATH=/data/local/tmp /data/local/tmp/exploit"
 ```
 
 Sortie :
