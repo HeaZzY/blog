@@ -13,7 +13,7 @@ Challenge Android (pwn kernel) d'**Airbus** à l'**ECW 2026**, **1 seul solve** 
 On l'a solve à deux dans l'équipe **ESNA** : **brsd** (mon coéquipier) et moi.
 ### Run le chall en local
 
-Pour rejouer en local, un petit `run.sh` enregistre l'AVD fourni et boote l'image dans l'émulateur Android :
+Pour rejouer en local, un petit `run.sh` enregistre l'AVD fourni et boot l'image dans l'émulateur Android :
 
 ```bash
 #!/usr/bin/env bash
