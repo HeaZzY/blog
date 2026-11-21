@@ -358,9 +358,8 @@ int main()
 }
 ```
 
-Pas besoin de root : le service **accepte l'uid shell (2000)**, donc on lance le binaire directement via `adb shell`.
 
-Build + run (uid 2000, sans root) :
+Build + run :
 
 ```bash
 clang++ --target=x86_64-linux-android33 -std=c++17 exploit.cpp \
