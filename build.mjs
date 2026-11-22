@@ -12,7 +12,7 @@ import rehypeStringify from 'rehype-stringify';
 import { visit, SKIP } from 'unist-util-visit';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
-const BLOG = { name: 'heazzy', tagline: 'Notes de cybersécurité, recon et writeups.' };
+const BLOG = { name: 'HeaZzy', tagline: 'Notes de cybersécurité, recon et writeups.' };
 const MONTHS = ['JAN', 'FÉV', 'MAR', 'AVR', 'MAI', 'JUN', 'JUL', 'AOÛ', 'SEP', 'OCT', 'NOV', 'DÉC'];
 
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
