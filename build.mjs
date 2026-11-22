@@ -87,6 +87,20 @@ const page = (title, up, inner) => `<!doctype html>
 </head><body class="app">
 ${topbar(up)}
 <main class="shell">${inner}</main>
+<script>
+// Terminaux annotés : au survol d'un champ, on relie DebugPrint <-> bytes gdb de même couleur.
+for (const fig of document.querySelectorAll('.term-fig')) {
+  fig.addEventListener('mouseover', (e) => {
+    const t = e.target.closest('[data-f]'); if (!t) return;
+    fig.classList.add('hl');
+    for (const s of fig.querySelectorAll('[data-f]')) s.classList.toggle('on', s.dataset.f === t.dataset.f);
+  });
+  fig.addEventListener('mouseleave', () => {
+    fig.classList.remove('hl');
+    for (const s of fig.querySelectorAll('[data-f].on')) s.classList.remove('on');
+  });
+}
+</script>
 </body></html>`;
 
 function postPage(p) {

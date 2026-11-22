@@ -323,3 +323,33 @@ dialog.modal::backdrop { background: rgba(0, 0, 0, 0.82); }
 /* --- version statique : plus de HUD ni de bascule son --- */
 :root { --hud-h: 0px; }
 .shell { padding-bottom: 48px; }
+
+/* --- terminal annoté : mapping %DebugPrint <-> octets gdb --- */
+.term { background: #0a0a0c; border: 2px solid var(--line); border-radius: 6px; padding: 14px 16px; margin: 22px 0; font-family: var(--font-code); font-size: 13.5px; line-height: 1.75; white-space: pre; overflow-x: auto; color: #e6e6e6; }
+.term .pr   { color: #6f6f78; }
+.term .cm   { color: #6f6f78; }
+.term .rule { color: #26262c; }
+.term .f-addr { color: #cfcfcf; }
+.term .f-map  { color: #3fd0ff; }
+.term .f-prop { color: #bdbdbd; }
+.term .f-elem { color: #ff8c1a; }
+.term .f-len  { color: #fff200; }
+.term .f-dbl  { color: #ff4dff; }
+.term .f-tag  { color: #ff2a2a; font-weight: 700; }
+/* .b = groupe de 4 octets mis en évidence côté gdb */
+.term .b { border-radius: 3px; padding: 1px 3px; }
+.term .b.f-map  { background: rgba(63,208,255,.15); }
+.term .b.f-prop { background: rgba(189,189,189,.14); }
+.term .b.f-elem { background: rgba(255,140,26,.16); }
+.term .b.f-len  { background: rgba(255,242,0,.14); }
+.term .b.f-dbl  { background: rgba(255,77,255,.15); }
+.term .f-tag.b  { background: rgba(255,42,42,.2); outline: 1px solid rgba(255,42,42,.55); }
+/* survol : on isole le champ relié */
+.term-fig.hl [data-f]      { opacity: .32; transition: opacity .1s; }
+.term-fig.hl [data-f].on   { opacity: 1; }
+.term-fig.hl [data-f].on.b { outline: 1px solid currentColor; }
+.term-cap { margin: -12px 0 24px; font-size: 13px; color: var(--ink-muted); }
+.term .f-o1 { color: #6fdc8c; }
+.term .f-o2 { color: #ff4dff; }
+.term .b.f-o1 { background: rgba(111,220,140,.15); }
+.term .b.f-o2 { background: rgba(255,77,255,.15); }

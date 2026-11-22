@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" font-family="ui-monospace, 'IBM Plex Mono', monospace">
+  <defs>
+    <marker id="iA" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="#fff200"/></marker>
+    <marker id="iM" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="#ff4dff"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="470" fill="#000000"/>
+
+  <!-- object in cage -->
+  <rect x="30" y="80" width="250" height="150" rx="8" fill="#071318" stroke="#3fd0ff" stroke-width="2.5"/>
+  <rect x="30" y="80" width="250" height="30" rx="8" fill="#0d1f27" stroke="#3fd0ff" stroke-width="2.5"/>
+  <text x="44" y="100" fill="#3fd0ff" font-size="13" font-weight="bold">Objet V8 (dans la cage)</text>
+  <text x="44" y="138" fill="#ffffff" font-size="13">map        …0100f575</text>
+  <text x="44" y="162" fill="#ffffff" font-size="13">elements   …000007e5</text>
+  <line x1="30" y1="176" x2="280" y2="176" stroke="#5c5c5c" stroke-width="1"/>
+  <text x="44" y="198" fill="#fff200" font-size="13">data (handle)</text>
+  <rect x="150" y="183" width="120" height="24" rx="4" fill="#1d1d05" stroke="#fff200" stroke-width="1.5"/>
+  <text x="210" y="200" fill="#fff200" font-size="13" text-anchor="middle">0x00400c00</text>
+  <text x="44" y="222" fill="#9a9a9a" font-size="11">32 bits = un index</text>
+
+  <!-- arrow handle -> table row -->
+  <path d="M270 195 L300 195 L300 206 L358 206" fill="none" stroke="#fff200" stroke-width="2.5" marker-end="url(#iA)"/>
+  <text x="300" y="188" fill="#fff200" font-size="11">indexe</text>
+
+  <!-- table outside sandbox -->
+  <rect x="360" y="70" width="330" height="200" rx="8" fill="#19081a" stroke="#ff4dff" stroke-width="2.5"/>
+  <text x="374" y="94" fill="#ff4dff" font-size="13" font-weight="bold">Trusted Pointer Table</text>
+  <text x="374" y="112" fill="#9a9a9a" font-size="11">hors sandbox — une entrée = pointeur 64 bits + tag</text>
+  <line x1="360" y1="122" x2="690" y2="122" stroke="#5c5c5c" stroke-width="1"/>
+  <text x="374" y="140" fill="#9a9a9a" font-size="11.5">idx</text>
+  <text x="440" y="140" fill="#9a9a9a" font-size="11.5">pointeur 64 bits</text>
+  <text x="620" y="140" fill="#9a9a9a" font-size="11.5">tag</text>
+
+  <text x="374" y="164" fill="#bdbdbd" font-size="12">4006</text>
+  <text x="440" y="164" fill="#bdbdbd" font-size="12">0x55…e120</text>
+  <text x="620" y="164" fill="#bdbdbd" font-size="11">STRING</text>
+
+  <rect x="368" y="174" width="314" height="26" rx="4" fill="#2a0f2c" stroke="#ff4dff" stroke-width="1.5"/>
+  <text x="374" y="192" fill="#ffffff" font-size="12">4008</text>
+  <text x="440" y="192" fill="#ff4dff" font-size="12">0x3afb01000421</text>
+  <text x="620" y="192" fill="#ffffff" font-size="11">REGEXP</text>
+
+  <text x="374" y="222" fill="#bdbdbd" font-size="12">400a</text>
+  <text x="440" y="222" fill="#bdbdbd" font-size="12">0x55…2f40</text>
+  <text x="620" y="222" fill="#bdbdbd" font-size="11">CODE</text>
+
+  <text x="374" y="250" fill="#5c5c5c" font-size="12">…</text>
+
+  <!-- arrow row -> target -->
+  <path d="M682 187 L740 187 L740 150" fill="none" stroke="#ff4dff" stroke-width="2.5" marker-end="url(#iM)"/>
+
+  <!-- target -->
+  <rect x="700" y="74" width="180" height="72" rx="6" fill="#111113" stroke="#9a9a9a" stroke-width="2"/>
+  <text x="714" y="98" fill="#ffffff" font-size="12" font-weight="bold">Cible</text>
+  <text x="714" y="118" fill="#9a9a9a" font-size="11">RegExpData</text>
+  <text x="714" y="134" fill="#ff4dff" font-size="11">0x3afb01000421</text>
+
+  <!-- protections -->
+  <rect x="30" y="300" width="410" height="68" rx="8" fill="#111113" stroke="#ff2a2a" stroke-width="2.5"/>
+  <text x="48" y="326" fill="#ff2a2a" font-size="13" font-weight="bold">Corrompre le handle ne suffit pas</text>
+  <text x="48" y="348" fill="#ffffff" font-size="12.5">Au pire tu pointes une autre entrée valide.</text>
+  <text x="48" y="364" fill="#ffffff" font-size="12.5">Jamais 0x4141414141414141.</text>
+
+  <rect x="460" y="300" width="410" height="68" rx="8" fill="#111113" stroke="#ff8c1a" stroke-width="2.5"/>
+  <text x="478" y="326" fill="#ff8c1a" font-size="13" font-weight="bold">Le type-tag verrouille</text>
+  <text x="478" y="348" fill="#ffffff" font-size="12.5">V8 refuse une entrée du mauvais type.</text>
+  <text x="478" y="364" fill="#ffffff" font-size="12.5">Pas de confusion EPT ↔ Code.</text>
+
+  <!-- contrast -->
+  <text x="30" y="408" fill="#6f6f78" font-size="12.5">Comparaison : un pointeur 64 bits inline dans l'objet → tu écris n'importe quoi → read/write arbitraire. game over.</text>
+</svg>

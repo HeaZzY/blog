@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="ui-monospace, 'IBM Plex Mono', monospace">
+  <defs>
+    <marker id="aCyan" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="#3fd0ff"/></marker>
+    <marker id="aOrange" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="#ff8c1a"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="520" fill="#000000"/>
+
+  <!-- arrows -->
+  <polyline points="320,199 440,199 440,110 560,110" fill="none" stroke="#3fd0ff" stroke-width="2.5" marker-end="url(#aCyan)"/>
+  <polyline points="320,259 470,259 470,334 560,334" fill="none" stroke="#ff8c1a" stroke-width="2.5" marker-end="url(#aOrange)"/>
+  <text x="452" y="150" fill="#3fd0ff" font-size="13">map</text>
+  <text x="482" y="300" fill="#ff8c1a" font-size="13">elements</text>
+
+  <!-- JSArray -->
+  <rect x="40" y="150" width="280" height="154" rx="8" fill="#111113" stroke="#ffffff" stroke-width="2.5"/>
+  <rect x="40" y="150" width="280" height="34" rx="8" fill="#1d1d22" stroke="#ffffff" stroke-width="2.5"/>
+  <text x="54" y="172" fill="#ffffff" font-size="15" font-weight="bold">JSArray</text>
+  <text x="306" y="172" fill="#9a9a9a" font-size="12" text-anchor="end">0x301e0104a5b9</text>
+  <line x1="40" y1="214" x2="320" y2="214" stroke="#5c5c5c" stroke-width="1"/>
+  <line x1="40" y1="244" x2="320" y2="244" stroke="#5c5c5c" stroke-width="1"/>
+  <line x1="40" y1="274" x2="320" y2="274" stroke="#5c5c5c" stroke-width="1"/>
+  <text x="54" y="204" fill="#3fd0ff" font-size="14">map</text>
+  <text x="306" y="204" fill="#3fd0ff" font-size="13" text-anchor="end">…0100bec9</text>
+  <text x="54" y="234" fill="#9a9a9a" font-size="14">properties</text>
+  <text x="306" y="234" fill="#9a9a9a" font-size="13" text-anchor="end">…000007e5</text>
+  <text x="54" y="264" fill="#ff8c1a" font-size="14">elements</text>
+  <text x="306" y="264" fill="#ff8c1a" font-size="13" text-anchor="end">…0104a599</text>
+  <text x="54" y="294" fill="#fff200" font-size="14">length</text>
+  <text x="306" y="294" fill="#fff200" font-size="13" text-anchor="end">3</text>
+
+  <!-- Map -->
+  <rect x="560" y="40" width="300" height="140" rx="8" fill="#111113" stroke="#3fd0ff" stroke-width="2.5"/>
+  <rect x="560" y="40" width="300" height="34" rx="8" fill="#15222a" stroke="#3fd0ff" stroke-width="2.5"/>
+  <text x="574" y="62" fill="#3fd0ff" font-size="15" font-weight="bold">Map</text>
+  <text x="846" y="62" fill="#9a9a9a" font-size="12" text-anchor="end">0x301e0100bec9</text>
+  <text x="574" y="98" fill="#ffffff" font-size="13">type: JS_ARRAY_TYPE</text>
+  <text x="574" y="124" fill="#ffffff" font-size="13">elements kind:</text>
+  <text x="590" y="144" fill="#ff4dff" font-size="13">PACKED_DOUBLE_ELEMENTS</text>
+  <text x="574" y="168" fill="#9a9a9a" font-size="13">instance size: 16</text>
+
+  <!-- FixedDoubleArray -->
+  <rect x="560" y="300" width="300" height="184" rx="8" fill="#111113" stroke="#ff8c1a" stroke-width="2.5"/>
+  <rect x="560" y="300" width="300" height="34" rx="8" fill="#241c10" stroke="#ff8c1a" stroke-width="2.5"/>
+  <text x="574" y="322" fill="#ff8c1a" font-size="15" font-weight="bold">FixedDoubleArray</text>
+  <text x="846" y="322" fill="#9a9a9a" font-size="12" text-anchor="end">0x301e0104a599</text>
+  <line x1="560" y1="364" x2="860" y2="364" stroke="#5c5c5c" stroke-width="1"/>
+  <line x1="560" y1="394" x2="860" y2="394" stroke="#5c5c5c" stroke-width="1"/>
+  <text x="574" y="354" fill="#3fd0ff" font-size="14">map</text>
+  <text x="846" y="354" fill="#3fd0ff" font-size="13" text-anchor="end">…0000095d</text>
+  <text x="574" y="384" fill="#fff200" font-size="14">length</text>
+  <text x="846" y="384" fill="#fff200" font-size="13" text-anchor="end">3</text>
+  <text x="574" y="414" fill="#ff4dff" font-size="14">[0]  1.1</text>
+  <text x="846" y="414" fill="#9a9a9a" font-size="12" text-anchor="end">0x3ff199999999999a</text>
+  <text x="574" y="444" fill="#ff4dff" font-size="14">[1]  2.2</text>
+  <text x="846" y="444" fill="#9a9a9a" font-size="12" text-anchor="end">0x400199999999999a</text>
+  <text x="574" y="474" fill="#ff4dff" font-size="14">[2]  3.3</text>
+  <text x="846" y="474" fill="#9a9a9a" font-size="12" text-anchor="end">0x400a666666666666</text>
+
+  <text x="40" y="360" fill="#9a9a9a" font-size="12">let a = [1.1, 2.2, 3.3]</text>
+  <text x="40" y="380" fill="#5c5c5c" font-size="12">%DebugPrint(a)</text>
+</svg>
